@@ -27,14 +27,14 @@ create table $db.$table_name (
   F_icon                varchar(64)  COLLATE utf8mb4_unicode_ci    NOT NULL DEFAULT '' COMMENT '菜单图标',
   F_sort                int(11)                                    NOT NULL DEFAULT '999' COMMENT '排序位置，默认最后一个',
   F_parent              varchar(64)  COLLATE utf8mb4_unicode_ci    NOT NULL DEFAULT '0' COMMENT '父级菜单 enum:0,no,否#1,yes,是',
-  F_is_link             tinyint(1)   COLLATE utf8mb4_unicode_ci    NOT NULL DEFAULT 0   COMMENT '是否外链 enum:0,no,否#1,yes,是',
-  F_deleted             tinyint(1)   COLLATE utf8mb4_unicode_ci    NOT NULL DEFAULT 0   COMMENT '删除标记 enum:0,no,否#1,yes,是',
+  F_is_link             bool         COLLATE  utf8mb4_unicode_ci   NOT NULL DEFAULT  false COMMENT '路径是否展示 enum:true,display,YES#1,flase,NO',
+  F_deleted             bool         COLLATE  utf8mb4_unicode_ci   NOT NULL DEFAULT  false COMMENT '路径是否展示 enum:true,display,YES#1,flase,NO',
   F_operator            varchar(32)  COLLATE utf8mb4_unicode_ci    NOT NULL DEFAULT '' COMMENT '操作员',
   F_create_time         bigint(20)                                 NOT NULL DEFAULT '0' COMMENT '创建时间戳 单位秒',
   F_modify_time         bigint(20)                                 NOT NULL DEFAULT '0' COMMENT '更新时间戳 单位秒',
   PRIMARY KEY (F_id) USING BTREE,
   UNIQUE KEY ${table_name}_F_menu_code (F_menu_code),
-  INDEX index_${table_name}_modify_time (F_modify_time)
+  INDEX ${table_name}_modify_time (F_modify_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='菜单表';
 "
 

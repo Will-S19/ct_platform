@@ -25,13 +25,13 @@ create table $db.$table_name (
   F_user_account        varchar(64)   COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT ''  COMMENT '用户账号',
   F_role_code           varchar(64)   COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT ''  COMMENT '组织代码',
   F_remark              text          COLLATE utf8mb4_unicode_ci  NOT NULL             COMMENT '备注',
-  F_deleted             varchar(1)    COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT '0' COMMENT '删除标记 enum:0,no,否#1,yes,是',
+  F_deleted             bool          COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT  false COMMENT '路径是否展示 enum:true,display,YES#1,flase,NO',
   F_operator            varchar(32)   COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT ''  COMMENT '操作员',
   F_create_time         bigint(20)                                NOT NULL DEFAULT '0' COMMENT '创建时间戳 单位秒',
   F_modify_time         bigint(20)                                NOT NULL DEFAULT '0' COMMENT '更新时间戳 单位秒',
   PRIMARY KEY (F_id) USING BTREE,
   UNIQUE KEY ${table_name}_F_role_code (F_role_code),
-  INDEX index_${table_name}_modify_time (F_modify_time)
+  INDEX ${table_name}_modify_time (F_modify_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户角色关联表';
 "
 
