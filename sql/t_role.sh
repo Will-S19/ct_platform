@@ -24,7 +24,7 @@ create table $db.$table_name (
   F_id                  int(11)                                   NOT NULL AUTO_INCREMENT,
   F_role_code           varchar(64)   COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT ''  COMMENT '组织代码',
   F_role_name           varchar(64)   COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT ''  COMMENT '角色名',
-  F_is_admin            tinyint(1)    COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT 0   COMMENT '是否是管理员 enum:0,normal_user,普通用户#1,admin,管理员用户',
+  F_is_admin            bool          COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT  false COMMENT '路径是否展示 enum:true,display,YES#1,flase,NO',
   F_status              tinyint(1)    COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT 0   COMMENT '角色状态 enum:0,normal,正常#1,ensure,待审核#2,stop,禁用',
   F_deleted             bool          COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT  false COMMENT '路径是否展示 enum:true,display,YES#1,flase,NO',
   F_operator            varchar(32)   COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT ''  COMMENT '操作员',

@@ -24,7 +24,7 @@ create table $db.$table_name (
   F_id                  int(11)                                   NOT NULL AUTO_INCREMENT,
   F_role_code           varchar(64)   COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT ''  COMMENT '角色代码',
   F_permission_code     varchar(64)   COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT ''  COMMENT '权限代码',
-  F_is_show             bool          COLLATE  utf8mb4_unicode_ci NOT NULL DEFAULT  false COMMENT '路径是否展示 enum:true,display,YES#1,flase,NO',
+  F_is_show             bool          COLLATE  utf8mb4_unicode_ci NOT NULL DEFAULT  true  COMMENT '路径是否展示 enum:true,display,YES#1,flase,NO',
   F_deleted             bool          COLLATE  utf8mb4_unicode_ci NOT NULL DEFAULT  false COMMENT '路径是否展示 enum:true,display,YES#1,flase,NO',
   F_operator            varchar(32)   COLLATE utf8mb4_unicode_ci  NOT NULL DEFAULT ''  COMMENT '操作员',
   F_create_time         bigint(20)                                NOT NULL DEFAULT '0' COMMENT '创建时间戳 单位秒',
