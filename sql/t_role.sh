@@ -31,8 +31,8 @@ create table $db.$table_name (
   F_create_time         bigint(20)                                NOT NULL DEFAULT '0' COMMENT '创建时间戳 单位秒',
   F_modify_time         bigint(20)                                NOT NULL DEFAULT '0' COMMENT '更新时间戳 单位秒',
   PRIMARY KEY (F_id) USING BTREE,
-  UNIQUE KEY ${table_name}_F_role_code (F_role_code) USING BTREE,
-  INDEX ${table_name}_modify_time (F_modify_time) USING BTREE
+  UNIQUE KEY ${table_name}_F_role_code (F_role_code),
+  INDEX ${table_name}_modify_time (F_modify_time)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='角色表';
 "
 
